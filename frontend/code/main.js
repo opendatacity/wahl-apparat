@@ -42,13 +42,82 @@ function init() {
 		form.append($(html));
 	});
 
+   initChart();
+
 	readLocalData(parameters);
 	setForm(parameters);
+	calcMatching(parameters);
 
 	form.change(function () {
 		readForm(parameters);
 		setLocalData(parameters);
+		calcMatching(parameters);
 	});
+}
+
+function calcMatching(p) {
+	var pn = wom.parteien.length;
+	
+	var parteiMatch = [];
+	for (var i = 0; i < pn; i++) {
+		var v = 0;
+		var s = 0;
+		for (var j = 0; j < count; j++) {
+			var dv = 0;
+			var ds = 0;
+			switch (p.answers[j]) {
+				case  1: dv = Math.abs(wom.thesenparteien[j][i] - 1); ds = 2; break;
+				case -1: dv = Math.abs(wom.thesenparteien[j][i] + 1); ds = 2; break;
+			}
+			if (p.important[j]) {
+				dv *= 2;
+				ds *= 2;
+			}
+			v += dv;
+			s += ds;
+		}
+		parteiMatch[i] = {
+			distance: v/s,
+			data: wom.parteien[i]
+		}
+	}
+
+	parteiMatch.sort(function (a,b) {
+		if (a.distance == b.distance) {
+			return a.index - b.index;
+		}
+		return a.distance - b.distance;
+	});
+
+	$.each(parteiMatch, function (index, partei) {
+		partei.data.node.css('left', index*45);
+		partei.data.bar.css('height', 100-100*partei.distance+'%');
+	});
+
+	//console.log(parteiMatch);
+}
+
+function initChart() {
+	var chart = $('#chart');
+	chart.empty();
+	chart.css('width', wom.parteien.length*45);
+
+	$.each(wom.parteien, function (index, partei) {
+		var node = $(
+			'<div class="partei'+(index < 7 ? ' known' : '')+'" style="left:'+(index*45)+'px">'+
+				'<div class="barborder">'+
+					'<div class="barinner" style="height:0%"></div>'+
+				'</div>'+
+				'<div class="title">'+partei.title+'</div>'+
+				'<img class="icon" src="images/22/'+partei.id+'.png">'+
+			'</div>'
+		);
+		chart.append(node);
+		partei.node = node;
+		partei.bar = node.find('.barinner');
+		partei.index = index;
+	});
+
 }
 
 function readLocalData(p) {
@@ -75,7 +144,7 @@ function readForm(p) {
 
 function setForm(p) {
 	$.each(wom.thesen, function (index, these) {
-		$('input[name="answer_'+index+']').removeAttr('checked');
+		$('input[name="answer_'+index+'"]').removeAttr('checked');
 		$('label.label_'+index).removeClass('active');
 		$('#important_'+index).removeClass('active');
 		$('#important_'+index+' input').removeAttr('checked');
@@ -141,7 +210,6 @@ function Parameters() {
 		}
 
 		code = code.replace(/0+$/, '');
-
 
 		return code;
 	}

@@ -39,3 +39,89 @@ p.question {
 	border-color: #aaa;
 }
 
+#chartwrapper {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 200px;
+	padding-top: 10px;
+	background-color: rgba(255,255,255,0.98);
+	z-index: 100;
+}
+
+#chart {
+	position: relative;
+	margin: auto;
+}
+
+.partei {
+	height: 200px;
+	position: absolute;
+	opacity: 0.5;
+
+	-webkit-transition: left 0.5s ease-in-out;
+	   -moz-transition: left 0.5s ease-in-out;
+	    -ms-transition: left 0.5s ease-in-out;
+	     -o-transition: left 0.5s ease-in-out;
+	        transition: left 0.5s ease-in-out;
+}
+
+.partei.known {
+	opacity: 1.0;
+}
+
+.barborder {
+	position: absolute;
+	top: 0px;
+	left: 5px;
+	width: 22px;
+	height: 150px;
+	border: 1px solid #aaa;
+}
+
+.barinner {
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	width: 100%;
+	background: #aaa;
+
+	-webkit-transition: height 0.5s ease-in-out;
+	   -moz-transition: height 0.5s ease-in-out;
+	    -ms-transition: height 0.5s ease-in-out;
+	     -o-transition: height 0.5s ease-in-out;
+	        transition: height 0.5s ease-in-out;
+}
+
+.title {
+	position: absolute;
+	left: 17px;
+	top: 136px;
+	color: #444;
+	font-size: 12px;
+	white-space: nowrap;
+
+	-webkit-transform: rotate(-90deg);
+	   -moz-transform: rotate(-90deg);
+	    -ms-transform: rotate(-90deg);
+	     -o-transform: rotate(-90deg);
+	        transform: rotate(-90deg);
+
+	-webkit-transform-origin: 0% 50%;
+	   -moz-transform-origin: 0% 50%;
+	    -ms-transform-origin: 0% 50%;
+	     -o-transform-origin: 0% 50%;
+	        transform-origin: 0% 50%;
+
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
+.icon {
+	position: absolute;
+	left: 5px;
+	top: 160px;
+	width: 22px;
+	height: 22px;
+}
+
