@@ -1,0 +1,40 @@
+.questionbox {
+	margin-bottom: 50px;
+}
+
+p.question {
+	margin-bottom: 50px;
+	font-size: 18px;
+	color: #444;
+	text-align: right;
+}
+
+.question strong {
+	color: #000;
+}
+
+#questions .btn-default {
+	color: #888;
+}
+
+#questions .answer label.active {
+	color: #333;
+	background-color: #ddd;
+	border-color: #aaa;
+}
+
+#questions .important {
+	display: inline-block;
+	margin-left: 10px;
+}
+
+#questions .important label {
+	padding: 5px 7px 9px 7px;
+}
+
+#questions .important label.active {
+	color: #333;
+	background-color: #ddd;
+	border-color: #aaa;
+}
+
