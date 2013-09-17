@@ -42,21 +42,21 @@ function init() {
 		form.append($(html));
 	});
 
-	readCookie(parameters);
+	readLocalData(parameters);
 	setForm(parameters);
 
 	form.change(function () {
 		readForm(parameters);
-		setCookie(parameters);
+		setLocalData(parameters);
 	});
 }
 
-function readCookie(p) {
-	p.decode($.cookie('parameters'));
+function readLocalData(p) {
+	p.decode($.jStorage.get('parameters'));
 }
 
-function setCookie(p) {
-	$.cookie('parameters', p.encode(), { expires: 365 });
+function setLocalData(p) {
+	$.jStorage.set('parameters', p.encode());
 }
 
 function readForm(p) {
@@ -150,7 +150,7 @@ function Parameters() {
 	}
 
 	me.decode = function (code) {
-		if (code === undefined) code = '';
+		if (!code) code = '';
 		var data = [];
 
 		for (var i = 0; i < codeLength; i++) {
