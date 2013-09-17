@@ -1,9 +1,29 @@
+body {
+	background: rgb(217,227,237); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Q5ZTNlZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(217,227,237,1) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(217,227,237,1)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(217,227,237,1) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(217,227,237,1) 0%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(217,227,237,1) 0%,rgba(255,255,255,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(217,227,237,1) 0%,rgba(255,255,255,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9e3ed', endColorstr='#ffffff',GradientType=0 ); /* IE6-8 */
+	background-attachment: fixed;
+}
+
+#content {
+	padding-bottom: 250px;
+}
+
 .questionbox {
-	margin-bottom: 50px;
+	padding: 10px;
+	margin-bottom: 30px;
+	background: #fff;
 }
 
 p.question {
-	margin-bottom: 50px;
+	margin: 0px;
 	padding-top: 5px;
 	font-size: 18px;
 	color: #444;
@@ -16,6 +36,10 @@ p.question {
 
 #questions .btn-default {
 	color: #888;
+}
+
+#questions .answer label {
+	width: 55px;
 }
 
 #questions .answer label.active {
@@ -44,21 +68,37 @@ p.question {
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	height: 200px;
-	padding-top: 10px;
-	background-color: rgba(255,255,255,0.98);
+	height: 230px;
 	z-index: 100;
+
+	overflow-x: scroll; 
+	background: rgb(249,195,55); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y5YzMzNyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmMzlkMzMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(249,195,55,1) 0%, rgba(243,157,51,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(249,195,55,1)), color-stop(100%,rgba(243,157,51,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(249,195,55,1) 0%,rgba(243,157,51,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(249,195,55,1) 0%,rgba(243,157,51,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(249,195,55,1) 0%,rgba(243,157,51,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(249,195,55,1) 0%,rgba(243,157,51,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9c337', endColorstr='#f39d33',GradientType=0 ); /* IE6-8 */
+
+	background: #c4d2e1;
 }
 
 #chart {
 	position: relative;
-	margin: auto;
+	margin-left: 300px;
 }
 
 .partei {
-	height: 200px;
+	height: 210px;
+	width: 44px;
+	top: 10px;
 	position: absolute;
-	opacity: 0.5;
+	background: #fff;
+	border: 1px solid #97a3af;
+	cursor: pointer;
 
 	-webkit-transition: left 0.5s ease-in-out;
 	   -moz-transition: left 0.5s ease-in-out;
@@ -67,17 +107,14 @@ p.question {
 	        transition: left 0.5s ease-in-out;
 }
 
-.partei.known {
-	opacity: 1.0;
-}
 
 .barborder {
 	position: absolute;
-	top: 0px;
-	left: 5px;
+	top: 10px;
+	left: 10px;
 	width: 22px;
-	height: 150px;
-	border: 1px solid #aaa;
+	bottom: 42px;
+	background: #d9e3ed;
 }
 
 .barinner {
@@ -85,7 +122,8 @@ p.question {
 	left: 0px;
 	bottom: 0px;
 	width: 100%;
-	background: #aaa;
+	background: #facb94;
+	border-top: 1px solid #fff;
 
 	-webkit-transition: height 0.5s ease-in-out;
 	   -moz-transition: height 0.5s ease-in-out;
@@ -94,11 +132,15 @@ p.question {
 	        transition: height 0.5s ease-in-out;
 }
 
+.partei.marked .barinner {
+	background: #f49e31;
+}
+
 .title {
 	position: absolute;
-	left: 17px;
-	top: 136px;
-	color: #444;
+	left: 22px;
+	bottom: 40px;
+	color: rgba(0,0,0,0);
 	font-size: 12px;
 	white-space: nowrap;
 
@@ -120,8 +162,21 @@ p.question {
 .icon {
 	position: absolute;
 	left: 5px;
-	top: 160px;
-	width: 22px;
-	height: 22px;
+	bottom: 5px;
+	width: 32px;
+	height: 32px;
+	background-position: -100px;
+	background-repeat: no-repeat;
 }
 
+.partei:hover .title, .partei.marked .title {
+	color: rgba(0,0,0,0.6);
+}
+
+.partei:hover .icon, .partei.marked .icon {
+	background-position: 0
+}
+
+.partei:hover .icon img, .partei.marked .icon img {
+	opacity: 0
+}

@@ -4,6 +4,7 @@ $(function () {
 
 var parameters = new Parameters();
 var count = 0;
+var parteiWidth = 52;
 var form;
 
 function init() {
@@ -22,24 +23,30 @@ function init() {
 		}
 
 		var html =
-			'<div class="questionbox" name="questionbox_'+index+'" >'+
+			'<div class="questionbox clearfix" name="questionbox_'+index+'" >'+
 				'<div class="form-group">'+
-					'<div class="col-lg-8">'+
+					'<div class="col-sm-8">'+
 						'<p class="question">'+text+'</p>'+
 					'</div>'+
-					'<div class="col-lg-4">'+
+					'<div class="col-sm-4">'+
 						'<div class="btn-group answer" data-toggle="buttons">'+
-							'<label id="label_'+index+'_1"  class="btn btn-default label_'+index+'"><input type="radio" name="answer_'+index+'" id="answer_'+index+'_1"  value="1" ><!--<span class="glyphicon glyphicon-thumbs-up"></span>--> Dafür</label>'+
+							'<label id="label_'+index+'_1"  class="btn btn-default label_'+index+'"><input type="radio" name="answer_'+index+'" id="answer_'+index+'_1"  value="1" ><!--<span class="glyphicon glyphicon-thumbs-up"></span>--> Ja</label>'+
 							'<label id="label_'+index+'_0"  class="btn btn-default label_'+index+'"><input type="radio" name="answer_'+index+'" id="answer_'+index+'_0"  value="0" >Egal</label>'+
-							'<label id="label_'+index+'_-1" class="btn btn-default label_'+index+'"><input type="radio" name="answer_'+index+'" id="answer_'+index+'_-1" value="-1">Dagegen <!--<span class="glyphicon glyphicon-thumbs-down"></span>--></label>'+
+							'<label id="label_'+index+'_-1" class="btn btn-default label_'+index+'"><input type="radio" name="answer_'+index+'" id="answer_'+index+'_-1" value="-1">Nein <!--<span class="glyphicon glyphicon-thumbs-down"></span>--></label>'+
 						'</div>'+
-						'<div class="important btn-group" data-toggle="buttons">'+
+						'<div class="important" data-toggle="buttons">'+
 							'<label class="btn btn-default" id="important_'+index+'"><input type="checkbox" name="important_'+index+'"><span class="glyphicon glyphicon-star"></span></label>'+
 						'</div>'+
 					'</div>'+
 				'</div>'+
 			'</div>';
 		form.append($(html));
+
+		
+		$('.important label').tooltip({
+			placement: 'right',
+			title: 'Ist mir wichtig!'
+		});
 	});
 
    initChart();
@@ -90,7 +97,7 @@ function calcMatching(p) {
 	});
 
 	$.each(parteiMatch, function (index, partei) {
-		partei.data.node.css('left', index*45);
+		partei.data.node.css('left', index*parteiWidth);
 		partei.data.bar.css('height', 100-100*partei.distance+'%');
 	});
 
@@ -100,16 +107,18 @@ function calcMatching(p) {
 function initChart() {
 	var chart = $('#chart');
 	chart.empty();
-	chart.css('width', wom.parteien.length*45);
+	chart.css('width', wom.parteien.length*parteiWidth + 300);
 
 	$.each(wom.parteien, function (index, partei) {
 		var node = $(
-			'<div class="partei'+(index < 7 ? ' known' : '')+'" style="left:'+(index*45)+'px">'+
+			'<div class="partei'+(index < 7 ? ' known' : '')+'" style="left:'+(index*parteiWidth)+'px">'+
 				'<div class="barborder">'+
 					'<div class="barinner" style="height:0%"></div>'+
 				'</div>'+
 				'<div class="title">'+partei.title+'</div>'+
-				'<img class="icon" src="images/22/'+partei.id+'.png">'+
+				'<div class="icon" style="background-image:url(images/32/'+partei.id+'.png)">'+
+					'<img src="images/32_grey/'+partei.id+'.png">'+
+				'</div>'+
 			'</div>'
 		);
 		chart.append(node);
