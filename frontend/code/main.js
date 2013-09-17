@@ -111,7 +111,7 @@ function initChart() {
 
 	$.each(wom.parteien, function (index, partei) {
 		var node = $(
-			'<div class="partei'+(index < 7 ? ' known' : '')+'" style="left:'+(index*parteiWidth)+'px">'+
+			'<div class="partei'+(index < 7 ? ' marked' : '')+'" style="left:'+(index*parteiWidth)+'px">'+
 				'<div class="barborder">'+
 					'<div class="barinner" style="height:0%"></div>'+
 				'</div>'+
