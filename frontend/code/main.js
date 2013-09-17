@@ -142,9 +142,6 @@ function Parameters() {
 
 		code = code.replace(/0+$/, '');
 
-		console.log('encode');
-		console.log(data.join(''));
-		console.log(code);
 
 		return code;
 	}
@@ -159,11 +156,6 @@ function Parameters() {
 			v = decodeTable[v];
 			data = data.concat(v);
 		}
-
-
-		console.log('decode');
-		console.log(code);
-		console.log(data.join(''));
 
 		for (var i = 0; i < count; i++) {
 			var a = data[i*3+0] + 2*data[i*3+1];
