@@ -72,9 +72,11 @@ function calcMatching(p) {
 		for (var j = 0; j < count; j++) {
 			var dv = 0;
 			var ds = 0;
+			var parteiValue = wom.thesenparteien[j][i];
+			if (wom.thesen[j].reverse) parteiValue *= -1;
 			switch (p.answers[j]) {
-				case  1: dv = Math.abs(wom.thesenparteien[j][i] - 1); ds = 2; break;
-				case -1: dv = Math.abs(wom.thesenparteien[j][i] + 1); ds = 2; break;
+				case  1: dv = Math.abs(parteiValue - 1); ds = 2; break;
+				case -1: dv = Math.abs(parteiValue + 1); ds = 2; break;
 			}
 			if (p.important[j]) {
 				dv *= 2;
