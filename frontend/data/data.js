@@ -52,7 +52,7 @@ var wom = {
 			"title": "Getrennter Schulunterricht",
 			"text": "Alle Kinder sollen ungeachtet ihres kulturellen Hintergrundes gemeinsam unterrichtet werden.",
 			"text2": "Alle {Kinder} sollen {gemeinsam unterrichtet} werden, egal welcher Herkunft.",
-			"reverse": true
+			"reverse": false
 		},
 		{
 			"title": "Spitzensteuersatz",
@@ -123,13 +123,13 @@ var wom = {
 		{
 			"title": "Länderfinanzausgleich",
 			"text": "Finanzstarke Bundesländer sollen schwache Bundesländer weniger unterstützen müssen.",
-			"text2": "Finanzstarke Bundesländer sollen {schwache Bundesländer weniger unterstützen}.",
-			"reverse": false
+			"text2": "Finanzstarke Bundesländer sollen weiterhin {schwache Bundesländer unterstützen}.",
+			"reverse": true
 		},
 		{
 			"title": "Rente mit 67",
 			"text": "Das gesetzliche Renteneintrittsalter soll wieder gesenkt werden.",
-			"text2": "Das gesetzliche {Renteneintrittsalter} soll {gesenkt} werden.",
+			"text2": "Das gesetzliche {Renteneintrittsalter} soll wieder {gesenkt} werden.",
 			"reverse": false
 		},
 		{
@@ -195,7 +195,7 @@ var wom = {
 		{
 			"title": "Adoptionsrechte für Schwule und Lesben",
 			"text": "Auch gleichgeschlechtliche Lebenspartnerschaften sollen ein gemeinsames Adoptionsrecht erhalten.",
-			"text2": "Auch {gleichgeschlechtliche} Lebenspartnerschaften dürfen {Kinder adoptieren}.",
+			"text2": "Auch {gleichgeschlechtliche Lebenspartnerschaften} dürfen {Kinder adoptieren}.",
 			"reverse": false
 		},
 		{
