@@ -4,6 +4,7 @@ $(function () {
 
 var parameters = new Parameters();
 var count = 0;
+var pcount = 0;
 var parteiWider = 52;
 var parteiWidth = 20;
 var form;
@@ -12,6 +13,7 @@ function init() {
 	form = $('#questions');
 
 	count = wom.thesen.length;
+	pcount = wom.parteien.length;
 
 	$.each(wom.thesen, function (index, these) {
 		var text = these.text2;
@@ -62,6 +64,9 @@ function init() {
 
 	readLocalData(parameters);
 	setForm(parameters);
+
+	if (parameters.showresult) $('body').removeClass('hideresult');
+
 	calcMatching(parameters);
 
 	form.change(function () {
@@ -70,31 +75,38 @@ function init() {
 		calcMatching(parameters);
 	});
 
-
+/*
 	$(window).bind('hashchange', function (e) {
 		readLocalData(parameters);
 		setForm(parameters);
 		calcMatching(parameters);
 	});
+*/
 
 
 	$('#showresult').click(function () {
+		console.log(parameters.selectedParties);
 		$('body').removeClass('hideresult');
+		parameters.showresult = true;
 		calcMatching(parameters);
+		setLocalData(parameters);
+		console.log(parameters.selectedParties);
 	});
 }
 
 function calcMatching(p) {
 	var width = 0;
-	for (var i = 0; i < wom.parteien.length; i++) width += (wom.parteien[i].marked ? parteiWider : parteiWidth);
+	
+	for (var i = 0; i < wom.parteien.length; i++) {
+		width += (parameters.selectedParties[i] ? parteiWider : parteiWidth);
+	}
+
 	$('#chart').css('width', width);
 
 	if ($('body').hasClass('hideresult')) return;
 
-	var pn = wom.parteien.length;
-	
 	var parteiMatch = [];
-	for (var i = 0; i < pn; i++) {
+	for (var i = 0; i < pcount; i++) {
 		var v = 0;
 		var s = 0;
 		for (var j = 0; j < count; j++) {
@@ -121,9 +133,9 @@ function calcMatching(p) {
 	for (var j = 0; j < count; j++) {
 		var markers = wom.thesen[j].markers;
 		markers.empty();
-		for (var i = 0; i < pn; i++) {
+		for (var i = 0; i < pcount; i++) {
 			var partei = wom.parteien[i];
-			if (partei.marked) {
+			if (parameters.selectedParties[i]) {
 				var parteiValue = wom.thesenparteien[j][i];
 				var node;
 				switch (parteiValue) {
@@ -150,11 +162,14 @@ function calcMatching(p) {
 
 	var left = 0;
 	$.each(parteiMatch, function (index, partei) {
-		partei.data.node.css('left', left + (partei.data.marked ? 3 : 0));
-		left += partei.data.marked ? parteiWider : parteiWidth;
+		var marked = parameters.selectedParties[partei.data.index];
+		console.log(marked);
+
+		partei.data.node.css('left', left + (marked ? 3 : 0));
+		left += marked ? parteiWider : parteiWidth;
 		partei.data.bar.css('height', 100-100*partei.distance+'%');
 
-		if (partei.data.marked) {
+		if (marked) {
 			partei.data.node.addClass('marked');
 		} else {
 			partei.data.node.removeClass('marked');
@@ -166,15 +181,14 @@ function calcMatching(p) {
 function initChart() {
 	var chart = $('#chart');
 	chart.empty();
-	var width = 0;
-	for (var i = 0; i < wom.parteien.length; i++) width += wom.parteien[i].marked ? parteiWider : parteiWidth;
-	chart.css('width', width);
+	chart.css('width', parteiWidth*wom.parteien.length);
 
 	$.each(wom.parteien, function (index, partei) {
-		partei.marked = (index < 7);
+		partei.index = index;
+		parameters.selectedParties[index] = (index < 5);
 
 		var node = $(
-			'<div class="partei'+(partei.marked ? ' marked' : '')+'" style="left:'+(index*parteiWidth)+'px">'+
+			'<div class="partei" style="left:'+(index*parteiWidth)+'px">'+
 				'<div class="barborder">'+
 					'<div class="barinner" style="height:0%"></div>'+
 				'</div>'+
@@ -193,11 +207,11 @@ function initChart() {
 		partei.index = index;
 
 		node.click(function () {
-			partei.marked = !partei.marked;
+			parameters.selectedParties[index] = !parameters.selectedParties[index];
 			calcMatching(parameters);
+			setLocalData(parameters);
 		})
 	});
-
 }
 
 function getMarker (partei) {
@@ -257,6 +271,8 @@ function Parameters() {
 
 	me.answers = [];
 	me.important = [];
+	me.showresult = false;
+	me.selectedParties = [];
 
 	me.reset = function () {
 		for (var i = 0; i < count; i++) {
@@ -265,7 +281,7 @@ function Parameters() {
 		}
 	}
 
-	var codeLength = 19;
+	var codeLength = 24;
 	var encodeTable = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_.';
 	var decodeTable = [];
 	for (var i = 0; i < 256; i++) decodeTable[i] = [0,0,0,0,0,0];
@@ -292,6 +308,12 @@ function Parameters() {
 			data.push(me.important[i] ? 1 : 0);
 		}
 
+		data.push(me.showresult ? 1 : 0);
+
+		for (var i = 0; i < pcount; i++) {
+			data.push(me.selectedParties[i] ? 1 : 0);
+		}
+
 		var code = '';
 		for (var i = 0; i < codeLength; i++) {
 			var s = 0;
@@ -311,7 +333,7 @@ function Parameters() {
 		if (!code) code = '';
 		var data = [];
 
-		for (var i = 0; i < codeLength; i++) {
+		for (var i = 0; i < code.length; i++) {
 			var v = code.charCodeAt(i);
 			if (!v) v = 0;
 			v = decodeTable[v];
@@ -319,14 +341,29 @@ function Parameters() {
 		}
 
 		for (var i = 0; i < count; i++) {
-			var a = data[i*3+0] + 2*data[i*3+1];
+			var a = data.shift() + 2*data.shift();
 			switch (a) {
-				case 1:  me.answers[i] =  1; break;
-				case 2:  me.answers[i] =  0; break;
-				case 3:  me.answers[i] = -1; break;
-				default: me.answers[i] = undefined; break;
+				case 0: me.answers[i] =  undefined; break;
+				case 1: me.answers[i] =  1; break;
+				case 2: me.answers[i] =  0; break;
+				case 3: me.answers[i] = -1; break;
 			}
-			me.important[i] = data[i*3+2];
+			switch (data.shift()) {
+				case 0: me.important[i] = false; break;
+				case 1: me.important[i] = true;  break;
+			}
+		}
+
+		switch (data.shift()) {
+			case 0: me.showresult = false; break;
+			case 1: me.showresult = true;  break;
+		}
+
+		for (var i = 0; i < pcount; i++) {
+			switch (data.shift()) {
+				case 0: me.selectedParties[i] = false; break;
+				case 1: me.selectedParties[i] = true;  break;
+			}
 		}
 	}
 
