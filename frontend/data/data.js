@@ -1375,142 +1375,188 @@ var wom = {
 		{
 			"title": "CDU / CSU",
 			"text": "Christlich Demokratische Union Deutschlands / Christlich-Soziale Union in Bayern e.V.",
-			"id": "cdu_csu"
+			"id": "cdu_csu",
+			"fill": "000000"
 		},
 		{
 			"title": "SPD",
 			"text": "Sozialdemokratische Partei Deutschlands",
-			"id": "spd"
+			"id": "spd",
+			"fill": "e0001b"
 		},
 		{
 			"title": "FDP",
 			"text": "Freie Demokratische Partei",
-			"id": "fdp"
+			"id": "fdp",
+			"fill": "ffd600"
 		},
 		{
 			"title": "DIE LINKE",
 			"text": "DIE LINKE",
-			"id": "die_linke"
+			"id": "die_linke",
+			"fill": "ff33bb"
 		},
 		{
 			"title": "GRÜNE",
 			"text": "BÜNDNIS 90/DIE GRÜNEN",
-			"id": "gruene"
+			"id": "gruene",
+			"fill": "1faf12"
 		},
 		{
 			"title": "PIRATEN",
 			"text": "Piratenpartei Deutschland",
-			"id": "piraten"
+			"id": "piraten",
+			"fill": "ff8814"
 		},
 		{
 			"title": "NPD",
 			"text": "Nationaldemokratische Partei Deutschlands",
-			"id": "npd"
+			"id": "npd",
+			"fill": "663300"
 		},
 		{
 			"title": "Tierschutzpartei",
 			"text": "PARTEI MENSCH UMWELT TIERSCHUTZ",
-			"id": "tierschutzpartei"
+			"id": "tierschutzpartei",
+			"fill": "ffffff",
+			"stroke": "003e71"
 		},
 		{
 			"title": "REP",
 			"text": "DIE REPUBLIKANER",
-			"id": "rep"
+			"id": "rep",
+			"fill": "ffffff",
+			"stroke": "0163ac"
 		},
 		{
 			"title": "ÖDP",
 			"text": "Ökologisch-Demokratische Partei",
-			"id": "oedp"
+			"id": "oedp",
+			"fill": "ffffff",
+			"stroke": "ec7404"
 		},
 		{
 			"title": "FAMILIE",
 			"text": "Familien-Partei Deutschlands",
-			"id": "familie"
+			"id": "familie",
+			"fill": "f56324",
+			"stroke": "876d61"
 		},
 		{
 			"title": "Bündnis 21/RRP",
 			"text": "Bündnis 21/RRP",
-			"id": "buendnis_rrp"
+			"id": "buendnis_rrp",
+			"fill": "545454",
+			"stroke": "e78105"
 		},
 		{
 			"title": "RENTNER",
 			"text": "RENTNER Partei Deutschland",
-			"id": "rentner"
+			"id": "rentner",
+			"fill": "666666"
 		},
 		{
 			"title": "BP",
 			"text": "Bayernpartei",
-			"id": "bp"
+			"id": "bp",
+			"fill": "",
+			"stroke": ""
 		},
 		{
 			"title": "PBC",
 			"text": "Partei Bibeltreuer Christen",
-			"id": "pbc"
+			"id": "pbc",
+			"fill": "",
+			"stroke": ""
 		},
 		{
 			"title": "BüSo",
 			"text": "Bürgerrechtsbewegung Solidarität",
-			"id": "bueso"
+			"id": "bueso",
+			"fill": "",
+			"stroke": ""
 		},
 		{
 			"title": "DIE VIOLETTEN",
 			"text": "Die Violetten",
-			"id": "die_violetten"
+			"id": "die_violetten",
+			"fill": "71106a"
 		},
 		{
 			"title": "MLPD",
 			"text": "Marxistisch-Leninistische Partei Deutschlands",
-			"id": "mlpd"
+			"id": "mlpd",
+			"fill": "ed8588",
+			"stroke": "ed1c24"
 		},
 		{
 			"title": "Volksabstimmung",
 			"text": "Ab jetzt...Demokratie durch Volksabstimmung",
-			"id": "volksabstimmung"
+			"id": "volksabstimmung",
+			"fill": "ffffff",
+			"stroke": "000000"
 		},
 		{
 			"title": "PSG",
 			"text": "Partei für Soziale Gleichheit, Sektion der Vierten Internationale",
-			"id": "psg"
+			"id": "psg",
+			"fill": "d72c26",
+			"stroke": "ffffff"
 		},
 		{
 			"title": "AfD",
 			"text": "Alternative für Deutschland",
-			"id": "afd"
+			"id": "afd",
+			"fill": "00adef"
 		},
 		{
 			"title": "BIG",
 			"text": "Bündnis für Innovation & Gerechtigkeit",
-			"id": "big"
+			"id": "big",
+			"fill": "f4802d",
+			"stroke": "263f91"
 		},
 		{
 			"title": "pro Deutschland",
 			"text": "Bürgerbewegung pro Deutschland",
-			"id": "pro_deutschland"
+			"id": "pro_deutschland",
+			"fill": "231f20",
+			"stroke": "e32225"
 		},
 		{
 			"title": "DIE FRAUEN",
 			"text": "Feministische Partei DIE FRAUEN",
-			"id": "die_frauen"
+			"id": "die_frauen",
+			"fill": "278f50",
+			"stroke": "ee1d23"
 		},
 		{
 			"title": "FREIE WÄHLER",
 			"text": "FREIE WÄHLER",
-			"id": "freie_waehler"
+			"id": "freie_waehler",
+			"fill": "0050a0",
+			"stroke": "f49501"
 		},
 		{
 			"title": "Partei der Nichtwähler",
 			"text": "Partei der Nichtwähler",
-			"id": "partei_der_nichtwaehler"
+			"id": "partei_der_nichtwaehler",
+			"fill": "032646",
+			"stroke": "eb6808"
 		},
 		{
 			"title": "PARTEI DER VERNUNFT",
 			"text": "Partei der Vernunft",
-			"id": "partei_der_vernunft"
+			"id": "partei_der_vernunft",
+			"fill": "577dae",
+			"stroke": "00275b"
 		},
 		{
 			"title": "Die PARTEI",
 			"text": "Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative",
-			"id": "die_partei"
+			"id": "die_partei",
+			"fill": "b5152b",
+			"stroke": "000000"
 		}
 	]
 }
