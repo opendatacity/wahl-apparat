@@ -135,40 +135,95 @@ body {
 
 	#chart {
 		position: relative;
-		margin-left: 300px;
+		margin: auto;
+
+		-webkit-transition: width 0.5s ease-in-out;
+		   -moz-transition: width 0.5s ease-in-out;
+		    -ms-transition: width 0.5s ease-in-out;
+		     -o-transition: width 0.5s ease-in-out;
+		        transition: width 0.5s ease-in-out;
 	}
 
 		.partei {
-			height: 210px;
-			width: 44px;
-			top: 10px;
+			height: 156px;
+			width: 18px;
+			top: 25px;
 			position: absolute;
 			background: #fff;
-			border: 1px solid #97a3af;
+			border: 1px solid rgba(151, 163, 175, 0.7);
 			cursor: pointer;
+			overflow: hidden;
 
-			-webkit-transition: left 0.5s ease-in-out;
-			   -moz-transition: left 0.5s ease-in-out;
-			    -ms-transition: left 0.5s ease-in-out;
-			     -o-transition: left 0.5s ease-in-out;
-			        transition: left 0.5s ease-in-out;
+			-webkit-transition-duration: 0.5s;
+			   -moz-transition-duration: 0.5s;
+			    -ms-transition-duration: 0.5s;
+			     -o-transition-duration: 0.5s;
+			        transition-duration: 0.5s;
+
+			-webkit-transition-timing-function: ease-in-out;
+			   -moz-transition-timing-function: ease-in-out;
+			    -ms-transition-timing-function: ease-in-out;
+			     -o-transition-timing-function: ease-in-out;
+			        transition-timing-function: ease-in-out;
+
+			-webkit-transition-property: left, top, height, width, border-color;
+			   -moz-transition-property: left, top, height, width, border-color;
+			    -ms-transition-property: left, top, height, width, border-color;
+			     -o-transition-property: left, top, height, width, border-color;
+			        transition-property: left, top, height, width, border-color;
 		}
 
 			.partei .markers {
 				width: 42px;
-				top: 5px;
+				top: -10px;
+				left: -13px;
 				position: absolute;
-				display: none;
+
+				-webkit-transition-duration: 0.5s;
+				   -moz-transition-duration: 0.5s;
+				    -ms-transition-duration: 0.5s;
+				     -o-transition-duration: 0.5s;
+				        transition-duration: 0.5s;
+
+				-webkit-transition-timing-function: ease-in-out;
+				   -moz-transition-timing-function: ease-in-out;
+				    -ms-transition-timing-function: ease-in-out;
+				     -o-transition-timing-function: ease-in-out;
+				        transition-timing-function: ease-in-out;
+
+				-webkit-transition-property: top, left;
+				   -moz-transition-property: top, left;
+				    -ms-transition-property: top, left;
+				     -o-transition-property: top, left;
+				        transition-property: top, left;
 			}
 
 
 			.barborder {
 				position: absolute;
-				top: 18px;
-				left: 10px;
-				width: 22px;
-				bottom: 42px;
+				top: 3px;
+				left: 3px;
+				width: 10px;
+				bottom: 3px;
 				background: #d9e3ed;
+
+				-webkit-transition-duration: 0.5s;
+				   -moz-transition-duration: 0.5s;
+				    -ms-transition-duration: 0.5s;
+				     -o-transition-duration: 0.5s;
+				        transition-duration: 0.5s;
+
+				-webkit-transition-timing-function: ease-in-out;
+				   -moz-transition-timing-function: ease-in-out;
+				    -ms-transition-timing-function: ease-in-out;
+				     -o-transition-timing-function: ease-in-out;
+				        transition-timing-function: ease-in-out;
+
+				-webkit-transition-property: left, top, bottom, width;
+				   -moz-transition-property: left, top, bottom, width;
+				    -ms-transition-property: left, top, bottom, width;
+				     -o-transition-property: left, top, bottom, width;
+				        transition-property: left, top, bottom, width;
 			}
 
 				.barinner {
@@ -189,11 +244,29 @@ body {
 
 			.title {
 				position: absolute;
-				left: 22px;
-				bottom: 40px;
+				left: 9px;
+				bottom: -2px;
 				color: rgba(0,0,0,0);
 				font-size: 12px;
 				white-space: nowrap;
+
+				-webkit-transition-duration: 0.5s;
+				   -moz-transition-duration: 0.5s;
+				    -ms-transition-duration: 0.5s;
+				     -o-transition-duration: 0.5s;
+				        transition-duration: 0.5s;
+
+				-webkit-transition-timing-function: ease-in-out;
+				   -moz-transition-timing-function: ease-in-out;
+				    -ms-transition-timing-function: ease-in-out;
+				     -o-transition-timing-function: ease-in-out;
+				        transition-timing-function: ease-in-out;
+
+				-webkit-transition-property: left, bottom;
+				   -moz-transition-property: left, bottom;
+				    -ms-transition-property: left, bottom;
+				     -o-transition-property: left, bottom;
+				        transition-property: left, bottom;
 
 				-webkit-transform: rotate(-90deg);
 				   -moz-transform: rotate(-90deg);
@@ -212,32 +285,72 @@ body {
 
 			.icon {
 				position: absolute;
-				left: 5px;
-				bottom: 5px;
+				left: -8px;
+				bottom: -34px;
 				width: 32px;
 				height: 32px;
 				background-position: -100px;
 				background-repeat: no-repeat;
+
+				-webkit-transition-duration: 0.5s;
+				   -moz-transition-duration: 0.5s;
+				    -ms-transition-duration: 0.5s;
+				     -o-transition-duration: 0.5s;
+				        transition-duration: 0.5s;
+
+				-webkit-transition-timing-function: ease-in-out;
+				   -moz-transition-timing-function: ease-in-out;
+				    -ms-transition-timing-function: ease-in-out;
+				     -o-transition-timing-function: ease-in-out;
+				        transition-timing-function: ease-in-out;
+
+				-webkit-transition-property: left, bottom;
+				   -moz-transition-property: left, bottom;
+				    -ms-transition-property: left, bottom;
+				     -o-transition-property: left, bottom;
+				        transition-property: left, bottom;
 			}
+
+.partei.marked {
+	width: 44px;
+	top: 10px;
+	height: 210px;
+	border: 1px solid rgba(151, 163, 175, 1);
+}
+
+.partei.marked .barborder {
+	left: 10px;
+	top: 18px;
+	width: 22px;
+	bottom: 42px;
+}
 
 .partei.marked .barinner {
 	background: #f49e31;
 }
 
 .partei.marked .markers {
-	display: block;
+	top: 5px;
+	left: 0px;
 }
 
-.partei:hover .title, .partei.marked .title {
+.partei.marked .icon {
+	left: 5px;
+	bottom: 5px;
+}
+
+.partei.marked .title {
+	color: rgba(0,0,0,0.6);
+	left: 22px;
+	bottom: 40px;
+}
+
+.partei:hover .title {
 	color: rgba(0,0,0,0.6);
 }
 
-.partei:hover .icon, .partei.marked .icon {
-	background-position: 0
-}
-
-.partei:hover .icon img, .partei.marked .icon img {
-	opacity: 0
+.partei.marked:hover .title {
+	color: rgba(0,0,0,0.6);
 }
 
 .hideresult #chartwrapper {

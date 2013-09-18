@@ -4,7 +4,8 @@ $(function () {
 
 var parameters = new Parameters();
 var count = 0;
-var parteiWidth = 52;
+var parteiWider = 52;
+var parteiWidth = 20;
 var form;
 
 function init() {
@@ -69,13 +70,13 @@ function init() {
 		calcMatching(parameters);
 	});
 
-/*
+
 	$(window).bind('hashchange', function (e) {
 		readLocalData(parameters);
 		setForm(parameters);
 		calcMatching(parameters);
 	});
-*/
+
 
 	$('#showresult').click(function () {
 		$('body').removeClass('hideresult');
@@ -84,6 +85,10 @@ function init() {
 }
 
 function calcMatching(p) {
+	var width = 0;
+	for (var i = 0; i < wom.parteien.length; i++) width += (wom.parteien[i].marked ? parteiWider : parteiWidth);
+	$('#chart').css('width', width);
+
 	if ($('body').hasClass('hideresult')) return;
 
 	var pn = wom.parteien.length;
@@ -143,8 +148,10 @@ function calcMatching(p) {
 		return a.distance - b.distance;
 	});
 
+	var left = 0;
 	$.each(parteiMatch, function (index, partei) {
-		partei.data.node.css('left', index*parteiWidth);
+		partei.data.node.css('left', left + (partei.data.marked ? 3 : 0));
+		left += partei.data.marked ? parteiWider : parteiWidth;
 		partei.data.bar.css('height', 100-100*partei.distance+'%');
 
 		if (partei.data.marked) {
@@ -154,14 +161,14 @@ function calcMatching(p) {
 		}
 		
 	});
-
-	//console.log(parteiMatch);
 }
 
 function initChart() {
 	var chart = $('#chart');
 	chart.empty();
-	chart.css('width', wom.parteien.length*parteiWidth + 300);
+	var width = 0;
+	for (var i = 0; i < wom.parteien.length; i++) width += wom.parteien[i].marked ? parteiWider : parteiWidth;
+	chart.css('width', width);
 
 	$.each(wom.parteien, function (index, partei) {
 		partei.marked = (index < 7);
@@ -172,8 +179,8 @@ function initChart() {
 					'<div class="barinner" style="height:0%"></div>'+
 				'</div>'+
 				'<div class="title">'+partei.title+'</div>'+
-				'<div class="icon" style="background-image:url(images/32/'+partei.id+'.png)">'+
-					'<img src="images/32_grey/'+partei.id+'.png">'+
+				'<div class="icon">'+
+					'<img src="images/32/'+partei.id+'.png">'+
 				'</div>'+
 				'<div class="markers">'+
 					getMarker(partei)+
