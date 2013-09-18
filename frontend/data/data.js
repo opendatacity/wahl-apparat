@@ -1412,7 +1412,7 @@ var wom = {
 			"title": "NPD",
 			"text": "Nationaldemokratische Partei Deutschlands",
 			"id": "npd",
-			"fill": "663300"
+			"fill": "804000"
 		},
 		{
 			"title": "Tierschutzpartei",

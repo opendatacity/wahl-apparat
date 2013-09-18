@@ -38,16 +38,19 @@ function init() {
 							'<label class="btn btn-default" id="important_'+index+'"><input type="checkbox" name="important_'+index+'"><span class="glyphicon glyphicon-star"></span></label>'+
 						'</div>'+
 						'<div class="markerwrapper">'+
-							'<div class="markers"><div class="marker" style="background-color:#0e0"></div><div class="marker" style="background-color:#f00"></div></div>'+
+							'<div class="markers"></div>'+
 							'<div class="markers"></div>'+
 							'<div class="markers"></div>'+
 						'</div>'+
 					'</div>'+
 				'</div>'+
 			'</div>';
-		form.append($(html));
+		var node = $(html);
+		form.append(node);
 
-		
+		these.node = node;
+		these.markers = node.find('.markers');
+
 		$('.important label').tooltip({
 			placement: 'right',
 			title: 'Ist mir wichtig!'
@@ -96,6 +99,24 @@ function calcMatching(p) {
 		}
 	}
 
+	for (var j = 0; j < count; j++) {
+		var markers = wom.thesen[j].markers;
+		markers.empty();
+		for (var i = 0; i < pn; i++) {
+			var partei = wom.parteien[i];
+			if (partei.marked) {
+				var parteiValue = wom.thesenparteien[j][i];
+				var node;
+				switch (parteiValue) {
+					case  1: node = markers.eq(0); break;
+					case  0: node = markers.eq(1); break;
+					case -1: node = markers.eq(2); break;
+				}
+				node.append($(getMarker(partei)));
+			}
+		}
+	}
+
 	parteiMatch.sort(function (a,b) {
 		if (a.distance == b.distance) {
 			return a.index - b.index;
@@ -106,6 +127,13 @@ function calcMatching(p) {
 	$.each(parteiMatch, function (index, partei) {
 		partei.data.node.css('left', index*parteiWidth);
 		partei.data.bar.css('height', 100-100*partei.distance+'%');
+
+		if (partei.data.marked) {
+			partei.data.node.addClass('marked');
+		} else {
+			partei.data.node.removeClass('marked');
+		}
+		
 	});
 
 	//console.log(parteiMatch);
@@ -117,14 +145,19 @@ function initChart() {
 	chart.css('width', wom.parteien.length*parteiWidth + 300);
 
 	$.each(wom.parteien, function (index, partei) {
+		partei.marked = (index < 7);
+
 		var node = $(
-			'<div class="partei'+(index < 7 ? ' marked' : '')+'" style="left:'+(index*parteiWidth)+'px">'+
+			'<div class="partei'+(partei.marked ? ' marked' : '')+'" style="left:'+(index*parteiWidth)+'px">'+
 				'<div class="barborder">'+
 					'<div class="barinner" style="height:0%"></div>'+
 				'</div>'+
 				'<div class="title">'+partei.title+'</div>'+
 				'<div class="icon" style="background-image:url(images/32/'+partei.id+'.png)">'+
 					'<img src="images/32_grey/'+partei.id+'.png">'+
+				'</div>'+
+				'<div class="markers">'+
+					getMarker(partei)+
 				'</div>'+
 			'</div>'
 		);
@@ -134,6 +167,15 @@ function initChart() {
 		partei.index = index;
 	});
 
+}
+
+function getMarker (partei) {
+	html =
+		'<div class="marker" style="'+
+		'background-color:#'+partei.fill+';'+
+		'border-color:#'+(partei.stroke ? partei.stroke : partei.fill)+
+		'"></div>';
+	return html;
 }
 
 function readLocalData(p) {
