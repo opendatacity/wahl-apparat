@@ -8,10 +8,6 @@ var parteiWidth = 52;
 var form;
 
 function init() {
-	$('#showresult').click(function () {
-		$('body').removeClass('hideresult');
-	})
-
 	form = $('#questions');
 
 	count = wom.thesen.length;
@@ -78,9 +74,16 @@ function init() {
 		setForm(parameters);
 		calcMatching(parameters);
 	});
+
+	$('#showresult').click(function () {
+		$('body').removeClass('hideresult');
+		calcMatching(parameters);
+	});
 }
 
 function calcMatching(p) {
+	if ($('body').hasClass('hideresult')) return;
+
 	var pn = wom.parteien.length;
 	
 	var parteiMatch = [];
