@@ -8,6 +8,10 @@ var parteiWidth = 52;
 var form;
 
 function init() {
+	$('#showresult').click(function () {
+		$('body').removeClass('hideresult');
+	})
+
 	form = $('#questions');
 
 	count = wom.thesen.length;
@@ -117,6 +121,11 @@ function calcMatching(p) {
 		}
 	}
 
+	$('#questions .marker').tooltip({
+		animation: false,
+		placement: 'bottom'
+	});
+
 	parteiMatch.sort(function (a,b) {
 		if (a.distance == b.distance) {
 			return a.index - b.index;
@@ -165,6 +174,11 @@ function initChart() {
 		partei.node = node;
 		partei.bar = node.find('.barinner');
 		partei.index = index;
+
+		node.click(function () {
+			partei.marked = !partei.marked;
+			calcMatching(parameters);
+		})
 	});
 
 }
@@ -174,7 +188,7 @@ function getMarker (partei) {
 		'<div class="marker" style="'+
 		'background-color:#'+partei.fill+';'+
 		'border-color:#'+(partei.stroke ? partei.stroke : partei.fill)+
-		'"></div>';
+		'" title="'+partei.title+'"></div>';
 	return html;
 }
 

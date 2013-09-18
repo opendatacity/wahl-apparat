@@ -11,12 +11,21 @@
 	<script type="text/javascript" src="data/data.js"></script>
 	<script type="text/javascript" src="code/main.js"></script>
 </head>
-<body>
+<body class="hideresult">
+	<div id="head">
+		<div class="col-sm-12">
+			<h1>&bdquo;Wahl-O-Mat 2.0&rdquo;</h1>
+			<p>Ein Vorschlag an die Bundeszentrale für politische Bildung zur Weiterentwicklung des Wahl-O-Mat</p>
+		</div>
+	</div>
 	<div id="content">
-		<h1>Wahl-o-mat 2.0</h1>
-		<h2>Fragen</h2>
 		<form id="questions" class="clearfix" role="form">
 		</form>
+		<div style="text-align:center; margin-top: 100px">
+			<div data-toggle="buttons">
+				<label class="btn btn-primary btn-lg" id="showresult"><input type="checkbox">Auswertung anzeigen</label>
+			</div>
+		</div>
 	</div>
 	<div id="chartwrapper">
 		<div id="chart">
