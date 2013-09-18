@@ -27,13 +27,13 @@ var wom = {
 		{
 			"title": "Strompreis",
 			"text": "Der Strompreis soll vom Staat stärker reguliert werden.",
-			"text2": "Der Staat soll den {Strompreis stärker regulieren}.",
+			"text2": "Der Staat soll den {Strompreis} stärker {regulieren}.",
 			"reverse": false
 		},
 		{
 			"title": "Videoüberwachung",
 			"text": "Die Videoüberwachung im öffentlichen Raum soll ausgebaut werden.",
-			"text2": "Es soll {mehr Videoüberwachung im öffentliche Raum} geben.",
+			"text2": "Es soll mehr {Videoüberwachung} im öffentlichen Raum geben.",
 			"reverse": false
 		},
 		{
@@ -45,14 +45,14 @@ var wom = {
 		{
 			"title": "Ökologische Landwirtschaft",
 			"text": "Nur ökologische Landwirtschaft soll finanzielle Förderung erhalten.",
-			"text2": "Der Staat soll {nur ökologische Landwirtschaft finanziell fördern}.",
+			"text2": "Der Staat soll nur {ökologische Landwirtschaft} finanziell fördern.",
 			"reverse": false
 		},
 		{
 			"title": "Getrennter Schulunterricht",
 			"text": "Alle Kinder sollen ungeachtet ihres kulturellen Hintergrundes gemeinsam unterrichtet werden.",
-			"text2": "{Alle Kinder} sollen ungeachtet ihres kulturellen Hintergrundes {gemeinsam unterrichtet} werden.",
-			"reverse": false
+			"text2": "Alle {Kinder} sollen {gemeinsam unterrichtet} werden, egal welcher Herkunft.",
+			"reverse": true
 		},
 		{
 			"title": "Spitzensteuersatz",
@@ -99,7 +99,7 @@ var wom = {
 		{
 			"title": "Parteienverbot",
 			"text": "Verfassungswidrige Parteien sollen weiterhin verboten werden dürfen.",
-			"text2": "Der Staat darf {verfassungswidrige Parteien verbieten}",
+			"text2": "Der Staat darf {verfassungswidrige Parteien verbieten}.",
 			"reverse": false
 		},
 		{
