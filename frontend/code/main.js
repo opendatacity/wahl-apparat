@@ -19,7 +19,7 @@ function init() {
 
 		if (these.reverse) {
 			var a = wom.thesenparteien[index];
-			for (var i = 0; i < a.length; i++) a[i] = 1 - a[i];
+			for (var i = 0; i < a.length; i++) a[i] *= -1;
 		}
 
 		var html =
@@ -69,11 +69,13 @@ function init() {
 		calcMatching(parameters);
 	});
 
+/*
 	$(window).bind('hashchange', function (e) {
 		readLocalData(parameters);
 		setForm(parameters);
 		calcMatching(parameters);
 	});
+*/
 
 	$('#showresult').click(function () {
 		$('body').removeClass('hideresult');
@@ -94,7 +96,6 @@ function calcMatching(p) {
 			var dv = 0;
 			var ds = 0;
 			var parteiValue = wom.thesenparteien[j][i];
-			if (wom.thesen[j].reverse) parteiValue *= -1;
 			switch (p.answers[j]) {
 				case  1: dv = Math.abs(parteiValue - 1); ds = 2; break;
 				case -1: dv = Math.abs(parteiValue + 1); ds = 2; break;
