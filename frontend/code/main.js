@@ -72,6 +72,12 @@ function init() {
 		setLocalData(parameters);
 		calcMatching(parameters);
 	});
+
+	$(window).bind('hashchange', function (e) {
+		readLocalData(parameters);
+		setForm(parameters);
+		calcMatching(parameters);
+	});
 }
 
 function calcMatching(p) {
@@ -193,11 +199,15 @@ function getMarker (partei) {
 }
 
 function readLocalData(p) {
-	p.decode($.jStorage.get('parameters'));
+	//p.decode($.jStorage.get('parameters'));
+	var hash = window.location.hash;
+	hash = hash.replace(/[\s\#]+/g, '');
+	p.decode(hash);
 }
 
 function setLocalData(p) {
-	$.jStorage.set('parameters', p.encode());
+	//$.jStorage.set('parameters', p.encode());
+	window.location.hash = '#'+p.encode();
 }
 
 function readForm(p) {
