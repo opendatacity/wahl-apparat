@@ -37,6 +37,11 @@ function init() {
 						'<div class="important" data-toggle="buttons">'+
 							'<label class="btn btn-default" id="important_'+index+'"><input type="checkbox" name="important_'+index+'"><span class="glyphicon glyphicon-star"></span></label>'+
 						'</div>'+
+						'<div class="markerwrapper">'+
+							'<div class="markers"><div class="marker" style="background-color:#0e0"></div><div class="marker" style="background-color:#f00"></div></div>'+
+							'<div class="markers"></div>'+
+							'<div class="markers"></div>'+
+						'</div>'+
 					'</div>'+
 				'</div>'+
 			'</div>';

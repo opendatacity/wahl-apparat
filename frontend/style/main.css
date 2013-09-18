@@ -38,8 +38,12 @@ p.question {
 	color: #888;
 }
 
+#questions .answer {
+	vertical-align: top;
+}
+
 #questions .answer label {
-	width: 55px;
+	width: 64px;
 }
 
 #questions .answer label.active {
@@ -54,13 +58,37 @@ p.question {
 }
 
 #questions .important label {
-	padding: 5px 7px 9px 7px;
+	padding: 6px 8px 6px 10px;
 }
 
 #questions .important label.active {
 	color: #333;
 	background-color: #ddd;
 	border-color: #aaa;
+}
+
+#questions .markerwrapper {
+	width: 192px;
+	height: 8px;
+	margin-top: 4px;
+	margin-bottom: -6px;
+}
+
+#questions .markers {
+	width: 64px;
+	height: 8px;
+	float: left;
+	text-align: center;
+	font-size: 6px;
+	line-height: 0;
+}
+
+.marker {
+	width: 8px;
+	height: 8px;
+	border-radius: 4px;
+	display: inline-block;
+	vertical-align: top;
 }
 
 #chartwrapper {
