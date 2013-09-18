@@ -1418,8 +1418,8 @@ var wom = {
 			"title": "Tierschutzpartei",
 			"text": "PARTEI MENSCH UMWELT TIERSCHUTZ",
 			"id": "tierschutzpartei",
-			"fill": "ffffff",
-			"stroke": "003e71"
+			"fill": "809ebe",
+			"stroke": "809ebe"
 		},
 		{
 			"title": "REP",
@@ -1446,7 +1446,7 @@ var wom = {
 			"title": "Bündnis 21/RRP",
 			"text": "Bündnis 21/RRP",
 			"id": "buendnis_rrp",
-			"fill": "545454",
+			"fill": "666666",
 			"stroke": "e78105"
 		},
 		{
@@ -1459,22 +1459,22 @@ var wom = {
 			"title": "BP",
 			"text": "Bayernpartei",
 			"id": "bp",
-			"fill": "",
-			"stroke": ""
+			"fill": "301728",
+			"stroke": "3158b0"
 		},
 		{
 			"title": "PBC",
 			"text": "Partei Bibeltreuer Christen",
 			"id": "pbc",
-			"fill": "",
-			"stroke": ""
+			"fill": "231f20",
+			"stroke": "ff0000"
 		},
 		{
 			"title": "BüSo",
 			"text": "Bürgerrechtsbewegung Solidarität",
 			"id": "bueso",
-			"fill": "",
-			"stroke": ""
+			"fill": "ed9307",
+			"stroke": "1f4569"
 		},
 		{
 			"title": "DIE VIOLETTEN",
@@ -1500,8 +1500,8 @@ var wom = {
 			"title": "PSG",
 			"text": "Partei für Soziale Gleichheit, Sektion der Vierten Internationale",
 			"id": "psg",
-			"fill": "d72c26",
-			"stroke": "ffffff"
+			"fill": "ffffff",
+			"stroke": "d60700"
 		},
 		{
 			"title": "AfD",
@@ -1534,7 +1534,7 @@ var wom = {
 			"title": "FREIE WÄHLER",
 			"text": "FREIE WÄHLER",
 			"id": "freie_waehler",
-			"fill": "0050a0",
+			"fill": "6699ff",
 			"stroke": "f49501"
 		},
 		{
@@ -1542,7 +1542,7 @@ var wom = {
 			"text": "Partei der Nichtwähler",
 			"id": "partei_der_nichtwaehler",
 			"fill": "032646",
-			"stroke": "eb6808"
+			"stroke": "ee9900"
 		},
 		{
 			"title": "PARTEI DER VERNUNFT",
