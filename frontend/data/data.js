@@ -15,7 +15,7 @@ var wom = {
 		{
 			"title": "Tempolimit",
 			"text": "Generelles Tempolimit auf Autobahnen!",
-			"text2": "Generelles {Tempolimit} auf Autobahnen!",
+			"text2": "Generelles {Tempolimit} auf Autobahnen.",
 			"reverse": false
 		},
 		{
@@ -69,7 +69,7 @@ var wom = {
 		{
 			"title": "Kohlekraft",
 			"text": "Kein Neubau von Kohlekraftwerken!",
-			"text2": "Es sollen {keine neuen Kohlekraftwerke} gebaut werden!",
+			"text2": "Es sollen {keine neuen Kohlekraftwerke} gebaut werden.",
 			"reverse": false
 		},
 		{
@@ -201,7 +201,7 @@ var wom = {
 		{
 			"title": "Vorratsdatenspeicherung",
 			"text": "Keine Speicherung von Kommunikationsdaten (z.B. Telefon, Internet) ohne konkreten Anlass!",
-			"text2": "{Keine Speicherung von Kommunikationsdaten} (z.B. Telefon, Internet) ohne konkreten Anlass!",
+			"text2": "{Keine Speicherung von Kommunikationsdaten} (z.B. Telefon, Internet) ohne konkreten Anlass.",
 			"reverse": false
 		},
 		{
@@ -225,7 +225,7 @@ var wom = {
 		{
 			"title": "Volksentscheide",
 			"text": "Einführung von Volksentscheiden auf Bundesebene!",
-			"text2": "Einführung von {Volksentscheiden} auf Bundesebene!",
+			"text2": "Einführung von {Volksentscheiden} auf Bundesebene.",
 			"reverse": false
 		}
 	],
