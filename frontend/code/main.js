@@ -224,14 +224,12 @@ function getMarker (partei) {
 }
 
 function readLocalData(p) {
-	//p.decode($.jStorage.get('parameters'));
 	var hash = window.location.hash;
 	hash = hash.replace(/[\s\#]+/g, '');
 	p.decode(hash);
 }
 
 function setLocalData(p) {
-	//$.jStorage.set('parameters', p.encode());
 	window.location.hash = '#'+p.encode();
 }
 
