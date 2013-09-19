@@ -67,7 +67,6 @@ function init() {
 
 	form.change(function () {
 		readForm(parameters);
-		setLocalData(parameters);
 		calcMatching(parameters);
 	});
 
@@ -93,6 +92,15 @@ function init() {
 		$('html, body').animate({ scrollTop: 0 }, 500);
 	})
 
+	$('#btnshare').click(function () {
+		$('#url').val('http://apps.opendatacity.de/wahl/#'+parameters.encode());
+		$('#myModal').modal();
+	})
+
+	$('#url').on('mouseup', function () {
+		$(this).select();
+	});
+
 	$('#showresult input').change(function () {
 		parameters.showresult = Boolean($('#showresult input').prop('checked'));
 
@@ -112,7 +120,6 @@ function init() {
 		} else {
 			$('body').addClass('hideresult');
 		}
-		setLocalData(parameters);
 	});
 }
 
@@ -234,7 +241,6 @@ function initChart() {
 		node.click(function () {
 			parameters.selectedParties[index] = !parameters.selectedParties[index];
 			calcMatching(parameters);
-			setLocalData(parameters);
 		})
 	});
 }
@@ -252,12 +258,6 @@ function readLocalData(p) {
 	var hash = window.location.hash;
 	hash = hash.replace(/[\s\#]+/g, '');
 	p.decode(hash);
-	if (hash != '') setLocalData(p);
-}
-
-function setLocalData(p) {
-	//window.location.hash = '#'+p.encode();
-	$('#url').val('http://apps.opendatacity.de/wahl/#'+p.encode());
 }
 
 function readForm(p) {
