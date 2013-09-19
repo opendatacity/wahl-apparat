@@ -213,7 +213,7 @@ body {
 		.partei {
 			height: 156px;
 			width: 18px;
-			top: 25px;
+			top: 15px;
 			position: absolute;
 			background: #fff;
 			border: 1px solid rgba(151, 163, 175, 0.7);
@@ -379,7 +379,7 @@ body {
 
 .partei.marked {
 	width: 44px;
-	top: 10px;
+	top: 0px;
 	height: 210px;
 	border: 1px solid rgba(151, 163, 175, 1);
 }
