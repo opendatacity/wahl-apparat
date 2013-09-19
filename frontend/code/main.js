@@ -62,12 +62,7 @@ function init() {
 
    initChart();
 
-	readLocalData(parameters);
-	setForm(parameters);
-
-	if (parameters.showresult) $('body').removeClass('hideresult');
-
-	calcMatching(parameters);
+	updateFromData();
 
 	form.change(function () {
 		readForm(parameters);
@@ -75,17 +70,27 @@ function init() {
 		calcMatching(parameters);
 	});
 
-/*
+
 	$(window).bind('hashchange', function (e) {
+		updateFromData()
+	});
+
+	function updateFromData () {
 		readLocalData(parameters);
 		setForm(parameters);
+		if (parameters.showresult) {
+			$('body').removeClass('hideresult');
+		} else {
+			$('body').addClass('hideresult');
+		}
 		calcMatching(parameters);
-	});
-*/
-
+	}
 
 	$('#showresult').click(function () {
-		console.log(parameters.selectedParties);
+		$.each(wom.parteien, function (index, partei) {
+			parameters.selectedParties[index] = (index < 5);	
+		});
+
 		$('body').removeClass('hideresult');
 		parameters.showresult = true;
 		calcMatching(parameters);
@@ -185,7 +190,7 @@ function initChart() {
 
 	$.each(wom.parteien, function (index, partei) {
 		partei.index = index;
-		parameters.selectedParties[index] = (index < 5);
+		parameters.selectedParties[index] = false;
 
 		var node = $(
 			'<div class="partei" style="left:'+(index*parteiWidth)+'px">'+
@@ -227,10 +232,12 @@ function readLocalData(p) {
 	var hash = window.location.hash;
 	hash = hash.replace(/[\s\#]+/g, '');
 	p.decode(hash);
+	if (hash != '') setLocalData(p);
 }
 
 function setLocalData(p) {
-	window.location.hash = '#'+p.encode();
+	//window.location.hash = '#'+p.encode();
+	$('#url').val('http://apps.opendatacity.de/wahl/#'+p.encode());
 }
 
 function readForm(p) {
@@ -345,22 +352,26 @@ function Parameters() {
 				case 1: me.answers[i] =  1; break;
 				case 2: me.answers[i] =  0; break;
 				case 3: me.answers[i] = -1; break;
+				default: me.answers[i] =  undefined;
 			}
 			switch (data.shift()) {
 				case 0: me.important[i] = false; break;
 				case 1: me.important[i] = true;  break;
+				default: me.important[i] = false;
 			}
 		}
 
 		switch (data.shift()) {
 			case 0: me.showresult = false; break;
 			case 1: me.showresult = true;  break;
+				default: me.showresult = false;
 		}
 
 		for (var i = 0; i < pcount; i++) {
 			switch (data.shift()) {
 				case 0: me.selectedParties[i] = false; break;
 				case 1: me.selectedParties[i] = true;  break;
+				default: me.selectedParties[i] = false;
 			}
 		}
 	}
