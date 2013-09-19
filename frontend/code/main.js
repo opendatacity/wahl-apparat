@@ -32,10 +32,10 @@ function init() {
 		var html =
 			'<div class="questionbox clearfix" name="questionbox_'+index+'" >'+
 				'<div class="form-group">'+
-					'<div class="col-sm-8">'+
+					'<div class="col-sm-7 col-md-8">'+
 						'<p class="question">'+text+'</p>'+
 					'</div>'+
-					'<div class="col-sm-4">'+
+					'<div class="col-sm-5 col-md-4 answer-col">'+
 						'<div class="btn-group answer" data-toggle="buttons">'+
 							'<label id="label_'+index+'_1"  class="btn btn-default label_'+index+'"><input type="radio" name="answer_'+index+'" id="answer_'+index+'_1"  value="1" ><!--<span class="glyphicon glyphicon-thumbs-up"></span>--> Ja</label>'+
 							'<label id="label_'+index+'_0"  class="btn btn-default label_'+index+'"><input type="radio" name="answer_'+index+'" id="answer_'+index+'_0"  value="0" >Egal</label>'+

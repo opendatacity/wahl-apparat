@@ -40,11 +40,12 @@ body {
 		color: #fff;
 		font-weight: bold;
 		margin-top: 0px;
+		font-size: 34px;
 	}
 
 	#head h2 {
 		margin-top: 0px;
-		font-size: 22px;
+		font-size: 20px;
 	}
 
 	#head .text {
@@ -75,6 +76,10 @@ body {
 		padding: 10px;
 		margin-bottom: 30px;
 		background: #fff;
+	}
+
+	@media (max-width: 767px) {
+
 	}
 
 	p.question {
@@ -437,4 +442,26 @@ body {
 
 .hideresult #blockreset {
 	display: none;
+}
+
+#blockreset div.col-xs-6 {
+	text-align: center;
+}
+
+#blockreset2 {
+	text-align: left;
+}
+
+@media (max-width: 767px) {
+	p.question {
+		text-align: left;
+	}
+	#questions .answer-col {
+		text-align: center;
+		margin-top: 10px
+	}
+	#questions .markerwrapper {
+		width: 235px;
+		margin: auto;
+	}
 }
