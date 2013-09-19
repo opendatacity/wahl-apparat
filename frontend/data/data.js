@@ -1545,7 +1545,7 @@ var wom = {
 			"stroke": "ee9900"
 		},
 		{
-			"title": "PARTEI DER VERNUNFT",
+			"title": "Partei der Vernunft",
 			"text": "Partei der Vernunft",
 			"id": "partei_der_vernunft",
 			"fill": "577dae",

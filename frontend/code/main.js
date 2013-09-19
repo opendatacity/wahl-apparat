@@ -178,10 +178,13 @@ function calcMatching(p) {
 	var left = 0;
 	$.each(parteiMatch, function (index, partei) {
 		var marked = parameters.selectedParties[partei.data.index];
+		var value = 100-100*partei.distance;
 
 		partei.data.node.css('left', left + (marked ? 3 : 0));
 		left += marked ? parteiWider : parteiWidth;
-		partei.data.bar.css('height', 100-100*partei.distance+'%');
+		partei.data.bar.css('height', value+'%');
+
+		partei.data.span.text(value.toFixed(0));
 
 		if (marked) {
 			partei.data.node.addClass('marked');
@@ -206,7 +209,7 @@ function initChart() {
 				'<div class="barborder">'+
 					'<div class="barinner" style="height:0%"></div>'+
 				'</div>'+
-				'<div class="title">'+partei.title+'</div>'+
+				'<div class="title">'+partei.title+' - <span>0</span>%</div>'+
 				'<div class="icon">'+
 					'<img src="images/32/'+partei.id+'.png">'+
 				'</div>'+
@@ -218,6 +221,7 @@ function initChart() {
 		chart.append(node);
 		partei.node = node;
 		partei.bar = node.find('.barinner');
+		partei.span = node.find('span');
 		partei.index = index;
 
 		node.click(function () {
