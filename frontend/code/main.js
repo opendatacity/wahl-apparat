@@ -114,12 +114,15 @@ function init() {
 				if (parameters.selectedParties[index]) selected++;
 			});
 
+			$('body').removeClass('hideresult');
+
 			if (selected == 0) {
+				calcMatching(parameters);
 				$.each(wom.parteien, function (index, partei) {
-					parameters.selectedParties[index] = (index < 5);
+					parameters.selectedParties[index] = partei.shouldSelected;
 				});
 			}
-			$('body').removeClass('hideresult');
+
 			calcMatching(parameters);
 		} else {
 			$('body').addClass('hideresult');
@@ -197,6 +200,8 @@ function calcMatching(p) {
 	$.each(parteiMatch, function (index, partei) {
 		var marked = parameters.selectedParties[partei.data.index];
 		var value = 100-100*partei.distance;
+
+		wom.parteien[partei.data.index].shouldSelected = (index < 5);
 
 		partei.data.node.css('left', left + (marked ? 3 : 0));
 		left += marked ? parteiWider : parteiWidth;
