@@ -11,7 +11,7 @@ var form;
 
 function init() {
 	setTimeout(function () {
-		$('html, body').animate({ scrollTop: 300 }, 500)
+		if ($('body').scrollTop() < 300) $('html, body').animate({ scrollTop: 300 }, 500)
 	}, 1000);
 
 	form = $('#questions');
