@@ -410,3 +410,15 @@ body {
 .hideresult #questions .marker {
 	opacity: 0;
 }
+
+#blockshow {
+	display: none;
+}
+
+.hideresult #blockshow {
+	display: block;
+}
+
+.hideresult #blockreset {
+	display: none;
+}

@@ -62,6 +62,7 @@ function init() {
 
    initChart();
 
+	readLocalData(parameters);
 	updateFromData();
 
 	form.change(function () {
@@ -72,11 +73,11 @@ function init() {
 
 
 	$(window).bind('hashchange', function (e) {
-		updateFromData()
+		readLocalData(parameters);
+		updateFromData();
 	});
 
 	function updateFromData () {
-		readLocalData(parameters);
 		setForm(parameters);
 		if (parameters.showresult) {
 			$('body').removeClass('hideresult');
@@ -85,6 +86,12 @@ function init() {
 		}
 		calcMatching(parameters);
 	}
+
+	$('#btnreset').click(function () {
+		parameters.reset();
+		updateFromData();
+		$('html, body').animate({ scrollTop: 0 }, 500);
+	})
 
 	$('#showresult input').change(function () {
 		parameters.showresult = Boolean($('#showresult input').prop('checked'));
@@ -296,6 +303,10 @@ function Parameters() {
 		for (var i = 0; i < count; i++) {
 			me.answers[i] = undefined;
 			me.important[i] = false;
+		}
+		me.showresult = false;
+		for (var i = 0; i < pcount; i++) {
+			me.selectedParties[i] = false;
 		}
 	}
 
