@@ -86,16 +86,26 @@ function init() {
 		calcMatching(parameters);
 	}
 
-	$('#showresult').click(function () {
-		$.each(wom.parteien, function (index, partei) {
-			parameters.selectedParties[index] = (index < 5);	
-		});
+	$('#showresult input').change(function () {
+		parameters.showresult = Boolean($('#showresult input').prop('checked'));
 
-		$('body').removeClass('hideresult');
-		parameters.showresult = true;
-		calcMatching(parameters);
+		if (parameters.showresult) {
+			var selected = 0;
+			$.each(wom.parteien, function (index, partei) {
+				if (parameters.selectedParties[index]) selected++;
+			});
+
+			if (selected == 0) {
+				$.each(wom.parteien, function (index, partei) {
+					parameters.selectedParties[index] = (index < 5);
+				});
+			}
+			$('body').removeClass('hideresult');
+			calcMatching(parameters);
+		} else {
+			$('body').addClass('hideresult');
+		}
 		setLocalData(parameters);
-		console.log(parameters.selectedParties);
 	});
 }
 
@@ -168,7 +178,6 @@ function calcMatching(p) {
 	var left = 0;
 	$.each(parteiMatch, function (index, partei) {
 		var marked = parameters.selectedParties[partei.data.index];
-		console.log(marked);
 
 		partei.data.node.css('left', left + (marked ? 3 : 0));
 		left += marked ? parteiWider : parteiWidth;

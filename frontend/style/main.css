@@ -45,7 +45,11 @@ body {
 }
 
 #content {
-	padding-bottom: 100px;
+	padding-bottom: 330px;
+}
+
+	.hideresult #content {
+		padding-bottom: 100px;
 }
 
 	.questionbox {
