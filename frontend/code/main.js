@@ -10,6 +10,10 @@ var parteiWidth = 20;
 var form;
 
 function init() {
+	setTimeout(function () {
+		$('html, body').animate({ scrollTop: 300 }, 500)
+	}, 1000);
+
 	form = $('#questions');
 
 	count = wom.thesen.length;
@@ -89,7 +93,7 @@ function init() {
 	$('#btnreset').click(function () {
 		parameters.reset();
 		updateFromData();
-		$('html, body').animate({ scrollTop: 0 }, 500);
+		$('html, body').animate({ scrollTop: 300 }, 500);
 	})
 
 	$('#btnshare').click(function () {
@@ -261,7 +265,7 @@ function readLocalData(p) {
 }
 
 function readForm(p) {
-	p.reset();
+	p.reset(true);
 
 	$.each(form.serializeArray(), function (index, object) {
 		if (object.name.substr(0,7) == 'answer_') {
@@ -299,11 +303,14 @@ function Parameters() {
 	me.showresult = false;
 	me.selectedParties = [];
 
-	me.reset = function () {
+	me.reset = function (formOnly) {
 		for (var i = 0; i < count; i++) {
 			me.answers[i] = undefined;
 			me.important[i] = false;
 		}
+		
+		if (formOnly) return;
+
 		me.showresult = false;
 		for (var i = 0; i < pcount; i++) {
 			me.selectedParties[i] = false;
