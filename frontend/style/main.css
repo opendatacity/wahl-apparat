@@ -159,6 +159,7 @@ body {
 	z-index: 100;
 
 	overflow-x: scroll; 
+	overflow-y: hidden;
 
 	background: #c4d2e1;
 
@@ -173,6 +174,14 @@ body {
 	     -o-transition: bottom 0.5s ease-out;
 	        transition: bottom 0.5s ease-out;
 }
+
+	#chartwrapper .help {
+		top: 10px;
+		left: 10px;
+		position:absolute;
+		width: 150px;
+		font-size: 12px;
+	}
 
 	#chart {
 		position: relative;
