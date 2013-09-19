@@ -38,11 +38,20 @@ body {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9c337', endColorstr='#f39d33',GradientType=0 ); /* IE6-8 */
 }
 
-#head h1 {
-	color: #fff;
-	font-weight: bold;
-	margin-top: 10px;
-}
+	#head h1 {
+		color: #fff;
+		font-weight: bold;
+		margin-top: 0px;
+	}
+
+	#head h2 {
+		margin-top: 0px;
+		font-size: 22px;
+	}
+
+	#head .text {
+		margin-top: 10px;
+	}
 
 #content {
 	padding-bottom: 330px;
