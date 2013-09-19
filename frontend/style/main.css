@@ -151,18 +151,12 @@ body {
 #chartwrapper {
 	position: fixed;
 	bottom: 0;
-	left: -50px;
-	right: -50px;
-	height: 230px;
+	left: 0px;
+	right: 0px;
+	height: 265px;
 	z-index: 100;
 
-	overflow-x: scroll; 
-	overflow-y: hidden;
-
 	background: #c4d2e1;
-
-	border-left: 50px solid #c4d2e1;
-	border-right: 50px solid #c4d2e1;
 
 	box-shadow: 0px -5px 20px rgba(0,0,0,0.3);
 
@@ -176,9 +170,21 @@ body {
 	#chartwrapper .help {
 		top: 10px;
 		left: 10px;
-		position:absolute;
-		width: 150px;
+		right: 10px;
+		position: absolute;
+		text-align: center;
 		font-size: 12px;
+	}
+
+	#chartscroller {
+		left: 0px;
+		bottom: 0px;
+		right: 0px;
+		height: 230px;
+		position:absolute;
+
+		overflow-x: scroll; 
+		overflow-y: hidden;
 	}
 
 	#chart {
