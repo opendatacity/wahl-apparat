@@ -188,7 +188,7 @@ function calcMatching(p) {
 
 	parteiMatch.sort(function (a,b) {
 		if (a.distance == b.distance) {
-			return a.index - b.index;
+			return a.data.index - b.data.index;
 		}
 		return a.distance - b.distance;
 	});
