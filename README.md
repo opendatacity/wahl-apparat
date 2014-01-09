@@ -1,6 +1,3 @@
-wahl-apparat
-============
+# Wahl-Apparat
 
-Der Code zu http://apps.opendatacity.de/wahl/
-
-(Sorry, no code comment included :/)
+Entwurf eines besseren Wahl-O-Maten
